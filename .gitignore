@@ -1,0 +1,12 @@
+log/*
+log/*.log
+log/*.output
+log/*.pid
+config/database.yml
+.DS_Store
+thumbs.db
+tmp/**/*
+public/attachments/*
+vendor/our_files/*
+public/files/*
+db/schema.rb

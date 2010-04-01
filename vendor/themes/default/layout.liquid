@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Title</title>
+</head>
+<body>
+<div id="main">
+  <div id="head">
+    <h1>{{ store_name }}</h1>
+  </div>
+  <div id="container">
+    <div id="nav">
+      <ul>
+      {% for tag in tags %}
+      <li>
+        <a href="/store/show_by_tags/{{ tag.name }}">{{ tag.name }}</a>
+        <ul>
+          {% for subtag in tag.children %}
+          <li><a href="/store/show_by_tags/{{ subtag.name }}">{{ subtag.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+      </ul>
+    </div>
+    
+    <div id="content">
+      {{ content_for_layout }}
+    </div>
+  </div>
+</div>
+</body>
+</html>

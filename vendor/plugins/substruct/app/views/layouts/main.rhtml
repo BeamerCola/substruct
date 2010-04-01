@@ -1,0 +1,12 @@
+<%
+assigns = {
+  'tags' => Tag.root.to_a,
+  'store_name' => @store_name
+}
+@layout = Liquid::Template.parse(IO.readlines("#{RAILS_ROOT}/vendor/themes/default/layout.liquid",'').to_s)
+@template = Liquid::Template.parse(IO.readlines("#{RAILS_ROOT}/vendor/themes/default/#{@liquid_template}.liquid",'').to_s)
+
+@rend_temp = @template.render(@liquid_assigns)
+@rend_layout = @layout.render({'content_for_layout' => @rend_temp}.merge(assigns))
+%>
+<%= @rend_layout %>
